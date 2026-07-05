@@ -1,4 +1,4 @@
-package PageObject;
+package ru.praktikum.scooter.pageobject;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class OrderStep2Page {
+public class OrderDeliveryDetailsPage {
 
     private final WebDriver driver;
     private final WebDriverWait wait;
@@ -29,7 +29,7 @@ public class OrderStep2Page {
     private static final By DROPDOWN_MENU = By.cssSelector(".Dropdown-menu");
     private static final By DROPDOWN_OPTIONS = By.cssSelector(".Dropdown-option");
 
-    public OrderStep2Page(WebDriver driver) {
+    public OrderDeliveryDetailsPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -37,7 +37,7 @@ public class OrderStep2Page {
     /**
      * Заполняет шаг 2 и отправляет форму.
      */
-    public void fillStep2AndSubmit(String deliveryDateText, String rentalDurationText) {
+    public void fillSecondStepAndSubmit(String deliveryDateText, String rentalDurationText) {
         selectDeliveryDate(deliveryDateText);
         selectFromDropdown(FIELD_RENTAL_DURATION, rentalDurationText);
 

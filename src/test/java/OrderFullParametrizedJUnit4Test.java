@@ -1,4 +1,3 @@
-import PageObject.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
@@ -7,6 +6,10 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import org.openqa.selenium.WebDriver;
+import ru.praktikum.scooter.pageobject.MainPage;
+import ru.praktikum.scooter.pageobject.OrderPersonalInfoPage;
+import ru.praktikum.scooter.pageobject.OrderDeliveryDetailsPage;
+import ru.praktikum.scooter.pageobject.OrderConfirmationPage;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,9 +24,9 @@ public class OrderFullParametrizedJUnit4Test {
 
     private WebDriver driver;
     private MainPage mainPage;
-    private OrderStep1Page stepOne;
-    private OrderStep2Page stepSecond;
-    private OrderStep3Page stepThree;
+    private OrderPersonalInfoPage stepOne;
+    private OrderDeliveryDetailsPage stepSecond;
+    private OrderConfirmationPage stepThree;
 
     // Параметры для параметризованного теста
     private final String firstName;
@@ -60,9 +63,9 @@ public class OrderFullParametrizedJUnit4Test {
         mainPage = new MainPage(driver);
         mainPage.openYandexSamokat();
 
-        stepOne = new OrderStep1Page(driver);
-        stepSecond = new OrderStep2Page(driver);
-        stepThree = new OrderStep3Page(driver);
+        stepOne = new OrderPersonalInfoPage(driver);
+        stepSecond = new OrderDeliveryDetailsPage(driver);
+        stepThree = new OrderConfirmationPage(driver);
     }
 
     @After
@@ -80,11 +83,11 @@ public class OrderFullParametrizedJUnit4Test {
         mainPage.clickOrderButton("top");
 
         // Шаг 1: заполнение персональных данных
-        stepOne.fillStep1(firstName, lastName, address, metroStation, phone);
+        stepOne.fillFirstStep(firstName, lastName, address, metroStation, phone);
         stepOne.clickNext();
 
         // Шаг 2: выбор даты и длительности аренды
-        stepSecond.fillStep2AndSubmit(deliveryDateClickText, rentalDurationText);
+        stepSecond.fillSecondStepAndSubmit(deliveryDateClickText, rentalDurationText);
 
         // Шаг 3: подтверждение заказа (в методе уже есть ожидание появления «Номер заказа»)
         stepThree.confirmOrder();

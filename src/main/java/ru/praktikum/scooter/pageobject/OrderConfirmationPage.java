@@ -1,4 +1,4 @@
-package PageObject;
+package ru.praktikum.scooter.pageobject;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -6,7 +6,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class OrderStep3Page {
+public class OrderConfirmationPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
 
@@ -21,7 +21,7 @@ public class OrderStep3Page {
             "//*[contains(text(), 'Номер заказа')]"
     );
 
-    public OrderStep3Page(WebDriver driver) {
+    public OrderConfirmationPage(WebDriver driver) {
         this.driver = driver;
         // 20 секунд — хороший запас для Firefox с анимациями и рендером
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
