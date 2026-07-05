@@ -14,10 +14,10 @@ import ru.praktikum.scooter.pageobject.OrderConfirmationPage;
 import java.util.Arrays;
 import java.util.Collection;
 
-import static org.junit.Assert.assertTrue;
+
 
 @RunWith(Parameterized.class)
-public class OrderFullParametrizedJUnit4Test {
+public class OrderFormValidationTest {
 
     @Rule
     public DriverFactory driverFactory = new DriverFactory();
@@ -37,7 +37,7 @@ public class OrderFullParametrizedJUnit4Test {
     private final String deliveryDateClickText;
     private final String rentalDurationText;
 
-    public OrderFullParametrizedJUnit4Test(
+    public OrderFormValidationTest(
             String firstName,
             String lastName,
             String address,

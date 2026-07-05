@@ -91,14 +91,6 @@ public class OrderPersonalInfoPage {
         metroField.clear();
         metroField.sendKeys(metroStation);
 
-        // Небольшая пауза, чтобы фронтенд успел отрисовать выпадающий список автокомплита.
-        // Без этого Keys.DOWN часто нажимается раньше, чем список появится.
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
         metroField.sendKeys(Keys.DOWN, Keys.ENTER);
     }
 
